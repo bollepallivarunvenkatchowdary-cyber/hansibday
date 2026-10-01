@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#fff0f6">
+  <meta name="description" content="A cinematic birthday time capsule made with love for Hansi.">
+
+  <title>Hansi's Sweet 16 | A Brother's Cut</title>
+
+  <link rel="stylesheet" href="style1.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- BACKGROUND EFFECTS -->
+  <div class="ambient-glow"></div>
+  <div class="particle-layer" id="particleLayer"></div>
+  <div class="confetti-layer" id="confettiLayer"></div>
+
+  <!-- MUSIC -->
+  <audio id="birthdayMusic" loop preload="metadata">
+    <source src="bday.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="music-button" id="musicButton" aria-label="Toggle birthday music">
+    <span id="musicIcon">♫</span>
+    <span id="musicLabel">Music Off</span>
+  </button>
+
+  <!-- INTRO SCREEN -->
+  <section class="intro-screen" id="introScreen">
+
+    <div class="intro-stars">✦　✧　✦</div>
+
+    <p class="intro-kicker">A SPECIAL PRESENTATION</p>
+
+    <div class="intro-line"></div>
+
+    <h1 class="intro-title">
+      HANSI
+      <span>THE SWEET SIXTEEN EDITION</span>
+    </h1>
+
+    <p class="intro-subtitle">
+      Sixteen years. Countless memories. One extraordinary girl.
+    </p>
+
+    <button class="enter-button" id="enterButton">
+      Enter Her World <span>✦</span>
+    </button>
+
+    <p class="intro-credit">A BROTHER'S CUT • MADE WITH LOVE</p>
+
+  </section>
+
+  <!-- MAIN WEBSITE -->
+  <main id="mainContent" class="hidden">
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+
+        <p class="eyebrow">THE WORLD'S LUCKIEST BROTHER PRESENTS</p>
+
+        <h1>
+          Happy Birthday,
+          <span class="hero-name">Hansi.</span>
+        </h1>
+
+        <p class="hero-description">
+          Sixteen years of laughter, mischief, gossip,
+          chocolate, and unforgettable memories.
+        </p>
+
+        <div class="hero-buttons">
+          <button class="primary-button" id="beginButton">
+            Begin the Journey ↓
+          </button>
+
+          <button class="outline-button" id="teaseButton">
+            A Message From Your Annoying Brother
+          </button>
+        </div>
+
+        <div class="hero-bottom">
+          <span>EST. 2010</span>
+          <span>SCROLL TO EXPLORE</span>
+          <span>FOREVER 16 ✦</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="intro-section section-padding">
+
+      <p class="eyebrow">CHAPTER 01 • THE MAIN CHARACTER</p>
+
+      <h2>Every family has a star.</h2>
+
+      <p class="intro-paragraph">
+        Ours happens to be a professional gossip collector,
+        chocolate enthusiast, and certified troublemaker.
+      </p>
+
+      <p class="intro-highlight">
+        And somehow, she's still our favourite person. 💗
+      </p>
+
+      <div class="chapter-decoration">✦</div>
+
+    </section>
+
+    <!-- PHOTO GALLERY -->
+    <section class="gallery-section section-padding" id="memories">
+
+      <div class="section-heading">
+        <p class="eyebrow">CHAPTER 02 • THE BIRTHDAY ARCHIVES</p>
+
+        <h2>16 Years.<br><span>16 Memories.</span></h2>
+
+        <p>
+          Every picture holds a story.
+          Every story has a little bit of you.
+        </p>
+      </div>
+
+      <div class="gallery-progress">
+        <span>THE MEMORY COLLECTION</span>
+        <span id="galleryCount">00 / 16</span>
+      </div>
+
+      <div class="memory-gallery" id="memoryGallery"></div>
+
+      <p class="gallery-footer">
+        Made of moments. Kept forever. ♡
+      </p>
+
+    </section>
+
+    <!-- PHOTO VIEWER -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+
+      <button class="lightbox-close" id="closeLightbox" aria-label="Close photo">
+        ×
+      </button>
+
+      <button class="lightbox-arrow previous" id="previousPhoto" aria-label="Previous photo">
+        ‹
+      </button>
+
+      <div class="lightbox-content">
+
+        <p class="lightbox-counter" id="lightboxCounter"></p>
+
+        <div class="lightbox-image-frame">
+          <img id="lightboxImage" src="" alt="Birthday memory">
+          <div class="image-shimmer"></div>
+        </div>
+
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxDescription"></p>
+
+      </div>
+
+      <button class="lightbox-arrow next" id="nextPhoto" aria-label="Next photo">
+        ›
+      </button>
+
+      <p class="lightbox-hint">Use ← → keys to explore</p>
+
+    </div>
+
+    <!-- SIBLING ROAST -->
+    <section class="roast-section section-padding">
+
+      <p class="eyebrow">CHAPTER 03 • CLASSIFIED SIBLING DOCUMENTS</p>
+
+      <h2>Official Hansi Report.</h2>
+
+      <div class="report-card">
+
+        <div class="report-stamp">CONFIDENTIAL</div>
+
+        <p class="report-label">SUBJECT</p>
+        <h3>Hansi</h3>
+
+        <div class="report-row">
+          <span>Age</span>
+          <strong>16 years</strong>
+        </div>
+
+        <div class="report-row">
+          <span>Favourite activities</span>
+          <strong>Gossip & chocolate</strong>
+        </div>
+
+        <div class="report-row">
+          <span>Favourite hero</span>
+          <strong>Ram 🎬</strong>
+        </div>
+
+        <div class="report-row">
+          <span>Annoying sibling</span>
+          <strong>Unfortunately, me.</strong>
+        </div>
+
+        <div class="report-verdict">
+          VERDICT: ABSOLUTELY IRREPLACEABLE.
+        </div>
+
+      </div>
+
+      <button class="primary-button" id="roastButton">
+        Reveal Classified Information 👀
+      </button>
+
+      <p class="roast-result" id="roastResult"></p>
+
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="timeline-section section-padding">
+
+      <p class="eyebrow">CHAPTER 04 • THE STORY SO FAR</p>
+
+      <h2>Sixteen years of being you.</h2>
+
+      <div class="timeline">
+
+        <article class="timeline-item">
+          <span class="timeline-number">01</span>
+          <div>
+            <p class="timeline-date">THE BEGINNING</p>
+            <h3>The day our family got brighter.</h3>
+            <p>
+              One little person. A whole lifetime of memories waiting to happen.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <span class="timeline-number">02</span>
+          <div>
+            <p class="timeline-date">THE GROWING YEARS</p>
+            <h3>From little adventures to big personalities.</h3>
+            <p>
+              The jokes, the conversations, the chaos, and the memories.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <span class="timeline-number">03</span>
+          <div>
+            <p class="timeline-date">THE PRESENT</p>
+            <h3>Sixteen looks wonderful on you.</h3>
+            <p>
+              A new chapter begins. Keep dreaming and being unapologetically you.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <span class="timeline-number">∞</span>
+          <div>
+            <p class="timeline-date">THE FUTURE</p>
+            <h3>More memories are waiting.</h3>
+            <p>
+              This is just one chapter of a story we'll keep writing together.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CAKE -->
+    <section class="cake-section section-padding" id="cake">
+
+      <p class="eyebrow">CHAPTER 05 • THE SWEET SIXTEEN CEREMONY</p>
+
+      <h2>Make a wish, birthday girl.</h2>
+
+      <p class="cake-description">
+        Sixteen years. Three candles. Infinite possibilities.
+      </p>
+
+      <div class="cake-stage">
+
+        <div class="cake-sparkles">✦　✧　✦</div>
+
+        <div class="cake">
+
+          <div class="candles" id="candles">
+
+            <div class="candle">
+              <div class="flame"></div>
+            </div>
+
+            <div class="candle">
+              <div class="flame"></div>
+            </div>
+
+            <div class="candle">
+              <div class="flame"></div>
+            </div>
+
+          </div>
+
+          <div class="cake-top"></div>
+          <div class="cake-middle"></div>
+          <div class="cake-bottom"></div>
+          <div class="cake-plate"></div>
+
+        </div>
+
+      </div>
+
+      <p class="cake-message" id="cakeMessage">
+        Close your eyes. Make a beautiful wish. ✨
+      </p>
+
+      <button class="primary-button" id="blowButton">
+        Blow Out the Candles 🕯️
+      </button>
+
+    </section>
+
+    <!-- LETTER -->
+    <section class="letter-section section-padding">
+
+      <p class="eyebrow">CHAPTER 06 • A LETTER FROM YOUR BROTHER</p>
+
+      <h2>Things I don't say enough.</h2>
+
+      <button class="envelope" id="openLetter" aria-label="Open your birthday letter">
+
+        <div class="envelope-back"></div>
+
+        <div class="letter-paper">
+          <span>For Hansi, with love. 💗</span>
+        </div>
+
+        <div class="envelope-flap"></div>
+
+        <div class="envelope-front"></div>
+
+        <div class="envelope-heart">♡</div>
+
+      </button>
+
+      <p class="envelope-hint">Tap the envelope to open your letter.</p>
+
+      <div class="letter-content" id="letterContent">
+
+        <h3>Dear Hansi,</h3>
+
+        <p>
+          Happy 16th birthday to my favourite little troublemaker. 💗
+        </p>
+
+        <p>
+          I could write an entire book about how much you annoy me,
+          but unfortunately, I'd have to admit how much I enjoy having
+          you around.
+        </p>
+
+        <p>
+          From your gossip sessions to your chocolate missions,
+          you somehow make even the most ordinary days memorable.
+        </p>
+
+        <p>
+          I hope you always have the courage to chase your dreams,
+          the confidence to be yourself, and enough chocolate
+          to survive every difficult day.
+        </p>
+
+        <p>
+          Keep shining, keep laughing, and keep being the amazing
+          person you are.
+        </p>
+
+        <p>
+          And remember, no matter how old you get, you will always
+          have one extremely annoying brother cheering for you.
+        </p>
+
+        <p class="letter-signature">
+          With love,<br>
+          Your favourite brother. Obviously. ❤️
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- FINAL SURPRISE -->
+    <section class="surprise-section section-padding" id="surprise">
+
+      <p class="eyebrow">FINAL CHAPTER • THE GRAND REVEAL</p>
+
+      <h2>One last surprise.</h2>
+
+      <p>
+        The birthday girl has unlocked the final gift.
+      </p>
+
+      <button class="gift" id="giftButton" aria-label="Open your birthday gift">
+
+        <span class="gift-lid"></span>
+        <span class="gift-box"></span>
+        <span class="gift-ribbon"></span>
+        <span class="gift-bow">♡</span>
+
+      </button>
+
+      <p class="gift-hint">Tap to reveal your surprise.</p>
+
+      <div class="final-reveal" id="finalReveal">
+
+        <div class="final-glow">✦</div>
+
+        <p class="eyebrow">A MESSAGE THAT LASTS FOREVER</p>
+
+        <h2>Hansi, you are loved.</h2>
+
+        <p>
+          Before the world knew your name, you were already
+          someone else's whole world.
+        </p>
+
+        <p>
+          You are loved in every photograph, every silly argument,
+          every shared laugh, and every little moment in between.
+        </p>
+
+        <p>
+          May your life be as legendary as your favourite hero,
+          as sweet as your favourite chocolate,
+          and as full of happiness as the memories we've made.
+        </p>
+
+        <h3>Happy Sweet 16, Hansi. 💗</h3>
+
+        <p class="final-signature">
+          Forever your brother. Forever your biggest fan.
+        </p>
+
+        <button class="primary-button" id="celebrateButton">
+          Celebrate One More Time 🎉
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+      <div class="footer-star">✦</div>
+
+      <h2>End of this chapter.</h2>
+
+      <p>Beginning of a million more memories.</p>
+
+      <p class="footer-dedication">
+        Made with love, laughter, and a little JavaScript magic.
+      </p>
+
+      <p class="footer-credit">HANSI • SWEET 16 • A BROTHER'S CUT</p>
+
+      <button class="back-to-top" id="backToTop">
+        Return to the beginning ↑
+      </button>
+
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
